@@ -78,6 +78,13 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let loginFacebook : UIButton = {
+        let button = UIButton()
+        button.setTitle("Log in with Facebook", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        return button
+    }()
+    
     private let headerView: UIView = {
         let header = UIView()
         header.clipsToBounds = true
@@ -85,6 +92,14 @@ class LoginViewController: UIViewController {
         let backgroundImageView = UIImageView(image: UIImage(named: "gradient"))
         header.addSubview(backgroundImageView)
         return header
+    }()
+    
+    private let textOr : UITextView = {
+        let textView = UITextView()
+        textView.text = "OR"
+        textView.textAlignment = .center
+        textView.textColor = .secondaryLabel
+        return textView
     }()
     
     override func viewDidLoad() {
@@ -127,14 +142,26 @@ class LoginViewController: UIViewController {
                                           , y: usernameEmailField.bottom + 10
                                   , width: view.width - 50
                                           , height: 52.0)
+        
         loginButton.frame = CGRect(x: 25
                                           , y: passwordField.bottom + 10
                                   , width: view.width - 50
                                           , height: 52.0)
+        textOr.frame = CGRect(x: 10,
+                              y: loginButton.bottom + 10,
+                              width: view.width - 20,
+                              height: 20)
+        
+        loginFacebook.frame = CGRect(x: 10,
+                                     y: textOr.bottom + 10,
+                                     width: view.width - 20,
+                                     height: 50)
+        
         termsButton.frame = CGRect(x: 10,
-                                   y: view.height  - view.safeAreaInsets.bottom - 100,
+                                   y: view.height - view.safeAreaInsets.bottom - 100,
                                    width: view.width - 20,
                                    height: 50)
+        
         createAccountButton.frame = CGRect(x: 10,
                                      y: view.height - view.safeAreaInsets.bottom - 50,
                                      width: view.width - 20,
@@ -169,6 +196,8 @@ class LoginViewController: UIViewController {
         view.addSubview(privacyButton)
         view.addSubview(createAccountButton)
         view.addSubview(headerView)
+        view.addSubview(loginFacebook)
+        view.addSubview(textOr)
     }
     
     @objc private func didTapLoginButton(){
@@ -228,7 +257,9 @@ class LoginViewController: UIViewController {
         present(UINavigationController(rootViewController: vc), animated: true)
     }
     
-    
+    @objc private func didTapLoginWithFaceBook(){
+        
+    }
 
 }
 
