@@ -91,6 +91,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addSubView()
         
         loginButton.addTarget(self
                               , action: #selector(didTapLoginButton)
@@ -108,7 +109,7 @@ class LoginViewController: UIViewController {
         usernameEmailField.delegate = self
         passwordField.delegate = self
         
-        addSubView()
+        
 
         view.backgroundColor = .systemBackground
     }
@@ -132,10 +133,6 @@ class LoginViewController: UIViewController {
                                           , y: passwordField.bottom + 10
                                   , width: view.width - 50
                                           , height: 52.0)
-//        createAccountButton.frame = CGRect(x: 25
-//                                          , y: loginButton.bottom + 10
-//                                  , width: view.width - 50
-//                                          , height: 52.0)
         termsButton.frame = CGRect(x: 10,
                                    y: view.height  - view.safeAreaInsets.bottom - 100,
                                    width: view.width - 20,
@@ -177,17 +174,44 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapLoginButton(){
+        
         passwordField.resignFirstResponder()
         usernameEmailField.resignFirstResponder()
         
         guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
-            return
-        }
+            return }
         
         //login func
+        var username: String?
+        var email: String?
         
-        
+        //check format email
+        if usernameEmail.contains("@"), usernameEmail.contains("."){
+            //email
+            email = usernameEmail
+        } else {
+            //username
+            username = usernameEmail
+        }
+        AuthManager.shared.loginUser(username: username,email: email, password: password) {
+            success in
+            DispatchQueue.main.async {
+                if success {
+                    //user loged in
+                    self.dismiss(animated: true,completion: nil)
+                } else {
+                    //error
+                    let arlet = UIAlertController(title: "Login Error!!!",
+                                                  message: "Login failed !!!",
+                                                  preferredStyle: .alert)
+                    arlet.addAction(UIAlertAction(title: "Dimiss",
+                                                  style: .cancel,
+                                                  handler: nil))
+                    self.present(arlet, animated: true)
+                }
+            }
+        }
     }
     
     @objc private func didTapTermsButton(){
