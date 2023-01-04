@@ -12,8 +12,6 @@ class LoginViewController: UIViewController {
         static let cornerRadius: CGFloat = 8.0
     }
     
-    
-    
     private let usernameEmailField: UITextField = {
        let field =  UITextField()
         field.placeholder = "Username or Email..."
@@ -226,7 +224,8 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapCreateAccountButton(){
         let vc = RegistrationViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true)
     }
     
     
