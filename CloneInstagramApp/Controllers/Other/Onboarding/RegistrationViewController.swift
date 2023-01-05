@@ -119,7 +119,7 @@ class RegistrationViewController: UIViewController {
                                   , width: view.width
                                   , height: view.height/4.0)
         usernameField.frame = CGRect(x: 20,
-                                     y: view.safeAreaInsets.top + 150,
+                                     y: view.safeAreaInsets.top + 200,
                                      width: view.width - 40,
                                      height: 52)
         emailField.frame = CGRect(x: 20,

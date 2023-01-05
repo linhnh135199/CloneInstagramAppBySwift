@@ -94,8 +94,8 @@ class LoginViewController: UIViewController {
         return header
     }()
     
-    private let textOr : UITextView = {
-        let textView = UITextView()
+    private let textOr : UILabel = {
+        let textView = UILabel()
         textView.text = "OR"
         textView.textAlignment = .center
         textView.textColor = .secondaryLabel
