@@ -83,6 +83,7 @@ final class SettingsViewController: UIViewController {
         let vc = EditProfileViewController()
         vc.title = "Edit Profile"
         let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
     }
     
@@ -113,7 +114,7 @@ final class SettingsViewController: UIViewController {
         let actionSheet = UIAlertController(title: "Log Out",
                                             message: "Are you sure you want to log out?",
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Cancel",
+        actionSheet.addAction(UIAlertAction(title: "Back",
                                             style: .cancel,
                                             handler: nil))
         actionSheet.addAction(UIAlertAction(title: "LogOut", style: .destructive,
