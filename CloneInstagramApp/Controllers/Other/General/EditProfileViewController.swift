@@ -123,11 +123,13 @@ final class EditProfileViewController: UIViewController, UITableViewDataSource {
     //- Action
     @objc private func didTapSave(){
         //save in4 to database
-        
+        dismiss(animated: true,
+                completion: nil)
     }
     
     @objc private func didTapCancel(){
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true,
+                completion: nil)
     }
     
     @objc private func didTapChangeProfilePicture(){
@@ -154,7 +156,10 @@ final class EditProfileViewController: UIViewController, UITableViewDataSource {
     
 }
 extension EditProfileViewController: FormTableViewCellDelegate {
-    func formTableViewCell(_ cell: FormTableViewCell, didUpdateFeild value: String?) {
-        print("Field update to: \(value ?? "nil")")
+    func formTableViewCell(_ cell: FormTableViewCell, didUpdateFeild updateModel: EditProfileFormModel) {
+        updateModel.label
+        //update model
+        print(updateModel.value ?? "nil")
     }
+    
 }
