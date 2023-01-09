@@ -66,7 +66,9 @@ final class ProfileViewController: UIViewController {
         
         let vc = SettingsViewController()
         vc.title = "Settings"
-        navigationController?.pushViewController(vc, animated: true)
+        let navVC = UINavigationController(rootViewController: vc)
+        //        navigationController?.pushViewController(navVC, animated: true)
+        present(navVC, animated: true)
     }
 }
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
@@ -119,7 +121,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDeleg
         let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                             withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier,
                                                                             for: indexPath) as! ProfileInfoHeaderCollectionReusableView
-        
+        profileHeader.delegate = self
         
         return profileHeader
     }
@@ -134,5 +136,37 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDeleg
                       height: 65)
         
     }
+    
+}
+
+extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate {
+    func profileHeaderDidTapPostButton(_ header: ProfileInfoHeaderCollectionReusableView) {
+        //scroll post
+        collectionView?.scrollToItem(at: IndexPath(row: 0,
+                                                   section: 1),
+                                     at: .top,
+                                     animated: true)
+    }
+    
+    func profileHeaderDidTapFollowerButton(_ header: ProfileInfoHeaderCollectionReusableView) {
+        let vc = ListViewController()
+        vc.title = "Followers"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
+        let vc = ListViewController()
+        vc.title = "Following"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func profileHeaderDidTapEditProfileButton(_ header: ProfileInfoHeaderCollectionReusableView) {
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
+        present(vc, animated: true)
+    }
+    
     
 }

@@ -128,7 +128,6 @@ final class SettingsViewController: UIViewController {
                     self.present(loginVC, animated: true) {
                         self.navigationController?.popToRootViewController(animated: false)
                         self.tabBarController?.selectedIndex = 0
-                        
                     }
                 }
                 else {
