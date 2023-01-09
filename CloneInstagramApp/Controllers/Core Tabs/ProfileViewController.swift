@@ -13,6 +13,7 @@ final class ProfileViewController: UIViewController {
     
     private var userPost = [UserPost]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -57,7 +58,7 @@ final class ProfileViewController: UIViewController {
         collectionView?.frame = view.bounds
     }
     private func configureNavigationBar(){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"),
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"),
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(didTapSettingButton))
@@ -86,7 +87,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //let model = userPost[indexPath.row]
-        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier,
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier,
                                                        for: indexPath) as! PhotoCollectionViewCell
         //cell.configure(with: model)
         cell.configure(debug: "ImgTest")
@@ -115,6 +116,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDeleg
             let tabControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                    withReuseIdentifier: ProfileTabsCollectionReusableView.identifier,
                                                                                    for: indexPath) as! ProfileTabsCollectionReusableView
+            tabControlHeader.delegate = self
             return tabControlHeader
         }
         
@@ -131,9 +133,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDeleg
             return CGSize(width: collectionView.width,
                           height: collectionView.height/2.75)
         }
+        
+        
         //size of section tabs
         return CGSize(width: collectionView.width,
-                      height: 65)
+                      height: 55)
         
     }
     
@@ -149,14 +153,14 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
     
     func profileHeaderDidTapFollowerButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController()
+        let vc = ListViewController(data: ["Linh","Linh","Linh","Linh","Linh","Linh"])
         vc.title = "Followers"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController()
+        let vc = ListViewController(data: ["Linh","Linh","Linh","Linh","Linh","Linh"])
         vc.title = "Following"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -165,7 +169,20 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     func profileHeaderDidTapEditProfileButton(_ header: ProfileInfoHeaderCollectionReusableView) {
         let vc = EditProfileViewController()
         vc.title = "Edit Profile"
-        present(vc, animated: true)
+        let navVC1 = UINavigationController(rootViewController: vc)
+        present(navVC1, animated: true)
+    }
+    
+    
+}
+extension ProfileViewController: ProfileTabsCollectionReusableViewDelegate {
+    func didTapGridButtonTab() {
+        //reload collection view with data
+    }
+    
+    func didTapTaggedButtonTab() {
+        //reload collection view with data
+
     }
     
     
