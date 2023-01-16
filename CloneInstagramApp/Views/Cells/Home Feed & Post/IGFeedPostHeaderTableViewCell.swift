@@ -1,5 +1,5 @@
 //
-//  IGFeedPostTableViewCell.swift
+//  IGFeedPostHeaderTableViewCell.swift
 //  CloneInstagramApp
 //
 //  Created by HOANG LINH on 05/01/2023.
@@ -7,12 +7,13 @@
 
 import UIKit
 
-final class IGFeedPostTableViewCell: UITableViewCell {
+class IGFeedPostHeaderTableViewCell: UITableViewCell {
     
-    static let indetifier = "IGFeedPostTableViewCell"
+    static let indetifier = "IGFeedPostHeaderTableViewCell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = .systemBlue
     }
     
     required init?(coder: NSCoder) {
@@ -23,4 +24,9 @@ final class IGFeedPostTableViewCell: UITableViewCell {
         //configure cell
         
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
 }

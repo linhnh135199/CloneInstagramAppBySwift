@@ -20,7 +20,8 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let profilePhotoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = .systemBlue
+        imageView.image = UIImage(named: "avt")
         imageView.layer.masksToBounds = true
         return imageView
     }()

@@ -7,7 +7,17 @@
 import FirebaseAuth
 import UIKit
 
+struct HomeFeedRenderViewModel {
+    let header: PostRenderViewModel
+    let post: PostRenderViewModel
+    let actions: PostRenderViewModel
+    let comments: PostRenderViewModel
+}
+
 class HomeViewController: UIViewController {
+    
+    private var feedRenderModels = [HomeFeedRenderViewModel]()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(IGFeedPostTableViewCell.self,
@@ -45,14 +55,14 @@ extension HomeViewController: UITableViewDelegate ,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.indetifier, for: indexPath) as!
-        IGFeedPostTableViewCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.indetifier,
+                                                 for: indexPath) as! IGFeedPostTableViewCell
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 0
     }
+    
     
 }
