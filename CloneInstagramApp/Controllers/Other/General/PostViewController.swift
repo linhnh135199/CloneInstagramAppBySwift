@@ -22,7 +22,7 @@ enum PostRenderType{
     case header(provider: User)
     case primaryContent(provider: UserPost) //post
     case actions(provider: String) //like,comment,share
-    case comments(provider: [PostComment])
+    case comments(comments: [PostComment])
 }
 ///model renderd post
 struct PostRenderViewModel {
@@ -71,7 +71,7 @@ class PostViewController: UIViewController {
                                         createdDate: Date(),
                                         likes: []))
         }
-        renderModels.append(PostRenderViewModel(renderType: .comments(provider: comments)))
+        renderModels.append(PostRenderViewModel(renderType: .comments(comments: comments)))
     }
     
     required init?(coder: NSCoder) {
