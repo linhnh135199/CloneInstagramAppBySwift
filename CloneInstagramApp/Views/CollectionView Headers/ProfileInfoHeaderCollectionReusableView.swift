@@ -67,7 +67,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Name Demo"
+        label.text = "Hoàng Linh"
         label.font = UIFont.boldSystemFont(ofSize: 18.0)
         label.textColor = .label
         label.numberOfLines = 1
@@ -75,7 +75,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     }()
     private let bioLabel: UILabel = {
         let label = UILabel()
-        label.text = "DemoDemo"
+        label.text = "nil"
         label.textColor = .label
         label.numberOfLines = 0
         return label

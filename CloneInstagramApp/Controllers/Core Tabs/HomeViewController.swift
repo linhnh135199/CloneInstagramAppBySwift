@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
     }
     
     private func createMockModels() {
-        let user = User(username: "Linh",
+        let user = User(username: "may13.gg",
                        bio: "",
                        name: (first: "", last: ""),
                        profilePhoto: URL(string: "https://www.youtube.com")!,
@@ -146,9 +146,11 @@ extension HomeViewController: UITableViewDelegate ,UITableViewDataSource{
         if subSection == 0 {
             //header
             switch model.header.renderType {
-            case .header(let header):
+            case .header(let user):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.indetifier,
                                                          for: indexPath) as! IGFeedPostHeaderTableViewCell
+                cell.configure(with: user )
+                cell.delegate = self
                 return cell
             case .comments, .actions, .primaryContent: return UITableViewCell()
             }
@@ -159,6 +161,7 @@ extension HomeViewController: UITableViewDelegate ,UITableViewDataSource{
             case .primaryContent(let post):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.indetifier,
                                                          for: indexPath) as! IGFeedPostTableViewCell
+                cell.configure(with: post)
                 return cell
             case .comments, .actions, .header: return UITableViewCell()
             }
@@ -169,6 +172,7 @@ extension HomeViewController: UITableViewDelegate ,UITableViewDataSource{
             case .actions(let provider):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostActionsTableViewCell.indetifier,
                                                          for: indexPath) as! IGFeedPostActionsTableViewCell
+                cell.delegate = self
                 return cell
             case .comments, .header, .primaryContent: return UITableViewCell()
             }
@@ -209,7 +213,7 @@ extension HomeViewController: UITableViewDelegate ,UITableViewDataSource{
             return 60
         }
         else if subSection == 3 {
-            //comment row 
+            //comment row
             return 50
         }
         return 0
@@ -220,5 +224,41 @@ extension HomeViewController: UITableViewDelegate ,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let subSection = section % 4
         return subSection == 3 ? 70 : 0
+    }
+}
+
+extension HomeViewController: IGFeedPostHeaderTableViewCellDelegate {
+    func didTapMoreButton() {
+        let actionSheet = UIAlertController(title: "Post Options",
+                                            message: nil,
+                                            preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Report Post",
+                                            style: .destructive,
+                                            handler: { [weak self] _ in self?.reportPost()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: nil))
+        present(actionSheet, animated: true)
+    }
+    
+    func reportPost(){
+        
+    }
+}
+
+extension HomeViewController: IGFeedPostActionsTableViewCellDelegate {
+    func didTapLikePostButton() {
+        print("like")
+    }
+    
+    func didTapCommentPostButton() {
+        print("comment")
+    }
+    
+    func didTapSharePostButton() {
+        print("share")
+    }
+    
+    func didTapSavePostButton() {
+        print("save")
     }
 }
