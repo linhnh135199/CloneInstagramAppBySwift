@@ -81,7 +81,7 @@ class IGFeedPostHeaderTableViewCell: UITableViewCell {
                                   width: size,
                                   height: size)
         usernameLabel.frame = CGRect(x: profilePhotoImageView.right+10,
-                                     y: 2,
+                                     y: 0,
                                      width: contentView.width-(size*2)-15,
                                      height: contentView.height-4)
     }

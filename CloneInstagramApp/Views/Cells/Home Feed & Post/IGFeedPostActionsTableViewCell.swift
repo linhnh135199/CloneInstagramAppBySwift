@@ -19,7 +19,10 @@ class IGFeedPostActionsTableViewCell: UITableViewCell {
     
     private let likeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "heart"),
+        let config = UIImage.SymbolConfiguration(pointSize: 30,
+                                                 weight: .thin)
+        let image = UIImage(named: "heart")
+        button.setImage(image,
                         for: .normal)
         button.tintColor = .label
         return button
@@ -27,7 +30,10 @@ class IGFeedPostActionsTableViewCell: UITableViewCell {
     
     private let commentButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "comment"),
+        let config = UIImage.SymbolConfiguration(pointSize: 30,
+                                                 weight: .thin)
+        let image = UIImage(named: "comment")
+        button.setImage(image,
                         for: .normal)
         button.tintColor = .label
         return button
@@ -35,7 +41,10 @@ class IGFeedPostActionsTableViewCell: UITableViewCell {
     
     private let shareButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "share"),
+        let config = UIImage.SymbolConfiguration(pointSize: 30,
+                                                 weight: .thin)
+        let image = UIImage(named: "share")
+        button.setImage(image,
                         for: .normal)
         button.tintColor = .label
         return button
@@ -43,7 +52,10 @@ class IGFeedPostActionsTableViewCell: UITableViewCell {
     
     private let saveButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "save"),
+        let config = UIImage.SymbolConfiguration(pointSize: 30,
+                                                 weight: .thin)
+        let image = UIImage(named: "save")
+        button.setImage(image,
                         for: .normal)
         button.tintColor = .label
         return button
