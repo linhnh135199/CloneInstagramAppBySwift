@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="-32" y="760"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Reels View Controller-->
         <scene sceneID="fkv-Vu-wWs">
             <objects>
-                <viewController id="Bzu-ZI-A7n" customClass="CameraViewController" customModule="CloneInstagramApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Bzu-ZI-A7n" customClass="ReelsViewController" customModule="CloneInstagramApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s5x-Aa-JXm">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -13,7 +13,6 @@ final class ProfileViewController: UIViewController {
     
     private var userPost = [UserPost]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -103,7 +102,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDeleg
                        profilePhoto: URL(string: "https://www.youtube.com")!,
                        birthDate: Date(),
                        gender: .male,
-                       counts: UserCount(followers: 50, following: 50 , posts: 1),
+                       counts: UserCount(followers: 50, following: 50 , posts: 30),
                        joinDate: Date())
         let post = UserPost(identifier: "",
                             postType: .photo,

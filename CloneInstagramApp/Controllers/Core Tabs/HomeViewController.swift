@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
                            forCellReuseIdentifier: IGFeedPostGeneralTableViewCell.indetifier)
         return tableView
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createMockModels()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0E824129877A2F00B6F9B7 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0E824029877A2F00B6F9B7 /* VideoCollectionViewCell.swift */; };
 		5B159BCE296433FF00B89396 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B159BCD296433FF00B89396 /* Extensions.swift */; };
 		5B46C3D0296BF64800B3EF09 /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B46C3CE296BF64800B3EF09 /* grid.png */; };
 		5B46C3D2296BFC4100B3EF09 /* tag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B46C3D1296BFC4100B3EF09 /* tag.png */; };
@@ -29,7 +30,7 @@
 		5BE2B2AB2963D0AC008F3BD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2B2AA2963D0AC008F3BD2 /* Assets.xcassets */; };
 		5BE2B2AE2963D0AC008F3BD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2B2AC2963D0AC008F3BD2 /* LaunchScreen.storyboard */; };
 		5BE2B2BB2963D4E7008F3BD2 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2B2BA2963D4E7008F3BD2 /* ExploreViewController.swift */; };
-		5BE2B2BD2963D50F008F3BD2 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2B2BC2963D50F008F3BD2 /* CameraViewController.swift */; };
+		5BE2B2BD2963D50F008F3BD2 /* ReelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2B2BC2963D50F008F3BD2 /* ReelsViewController.swift */; };
 		5BE2B2C02963D53E008F3BD2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2B2BF2963D53E008F3BD2 /* NotificationViewController.swift */; };
 		5BE2B2C22963D556008F3BD2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2B2C12963D556008F3BD2 /* ProfileViewController.swift */; };
 		5BE2B2C72963D757008F3BD2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2B2C62963D757008F3BD2 /* LoginViewController.swift */; };
@@ -64,6 +65,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B0E823C298772AD00B6F9B7 /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
+		5B0E824029877A2F00B6F9B7 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B159BCD296433FF00B89396 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5B46C3CE296BF64800B3EF09 /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid.png; sourceTree = "<group>"; };
 		5B46C3D1296BFC4100B3EF09 /* tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tag.png; sourceTree = "<group>"; };
@@ -88,7 +91,7 @@
 		5BE2B2AD2963D0AC008F3BD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BE2B2AF2963D0AC008F3BD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BE2B2BA2963D4E7008F3BD2 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
-		5BE2B2BC2963D50F008F3BD2 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		5BE2B2BC2963D50F008F3BD2 /* ReelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsViewController.swift; sourceTree = "<group>"; };
 		5BE2B2BF2963D53E008F3BD2 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		5BE2B2C12963D556008F3BD2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5BE2B2C62963D757008F3BD2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +147,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5B0E82382987722300B6F9B7 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				5B0E823C298772AD00B6F9B7 /* video1.mp4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		5B0E823F2987797D00B6F9B7 /* VideoReels */ = {
+			isa = PBXGroup;
+			children = (
+				5B0E824029877A2F00B6F9B7 /* VideoCollectionViewCell.swift */,
+			);
+			path = VideoReels;
+			sourceTree = "<group>";
+		};
 		5B52F0CB296D17F300E9501F /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +193,7 @@
 		5BE2B2A02963D0AB008F3BD2 /* CloneInstagramApp */ = {
 			isa = PBXGroup;
 			children = (
+				5B0E82382987722300B6F9B7 /* Video */,
 				5BE2B2DA2963DFB8008F3BD2 /* Image */,
 				5BE2B2B82963D2D9008F3BD2 /* Resources */,
 				5BE2B2B72963D26E008F3BD2 /* Models */,
@@ -241,7 +261,7 @@
 			children = (
 				5BE2B2A52963D0AB008F3BD2 /* HomeViewController.swift */,
 				5BE2B2BA2963D4E7008F3BD2 /* ExploreViewController.swift */,
-				5BE2B2BC2963D50F008F3BD2 /* CameraViewController.swift */,
+				5BE2B2BC2963D50F008F3BD2 /* ReelsViewController.swift */,
 				5BE2B2BF2963D53E008F3BD2 /* NotificationViewController.swift */,
 				5BE2B2C12963D556008F3BD2 /* ProfileViewController.swift */,
 			);
@@ -323,6 +343,7 @@
 		5BF2D4AD2966B52A00D6710B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5B0E823F2987797D00B6F9B7 /* VideoReels */,
 				5B52F0CB296D17F300E9501F /* Notifications */,
 				5BF2D4B02966B8D400D6710B /* Home Feed & Post */,
 				5BED8A942967D32500A865B8 /* PhotoCollectionViewCell.swift */,
@@ -486,7 +507,7 @@
 				5BE2B2CD2963D809008F3BD2 /* EditProfileViewController.swift in Sources */,
 				5BE2B2BB2963D4E7008F3BD2 /* ExploreViewController.swift in Sources */,
 				5BE2B2D92963D8CA008F3BD2 /* PublishPostViewController.swift in Sources */,
-				5BE2B2BD2963D50F008F3BD2 /* CameraViewController.swift in Sources */,
+				5BE2B2BD2963D50F008F3BD2 /* ReelsViewController.swift in Sources */,
 				5BE2B2C02963D53E008F3BD2 /* NotificationViewController.swift in Sources */,
 				5BE2B2C92963D773008F3BD2 /* RegistrationViewController.swift in Sources */,
 				5B52F0C8296D095100E9501F /* NoNofiticationsView.swift in Sources */,
@@ -511,6 +532,7 @@
 				5BE2B2D32963D856008F3BD2 /* SearchViewController.swift in Sources */,
 				5BED8A972967D4F800A865B8 /* ProfileInfoHeaderCollectionReusableView.swift in Sources */,
 				5BE2B2C22963D556008F3BD2 /* ProfileViewController.swift in Sources */,
+				5B0E824129877A2F00B6F9B7 /* VideoCollectionViewCell.swift in Sources */,
 				5BE2B2F029641FFE008F3BD2 /* AuthManager.swift in Sources */,
 				5BE2B2A22963D0AB008F3BD2 /* AppDelegate.swift in Sources */,
 				5BE2B2A42963D0AB008F3BD2 /* SceneDelegate.swift in Sources */,
