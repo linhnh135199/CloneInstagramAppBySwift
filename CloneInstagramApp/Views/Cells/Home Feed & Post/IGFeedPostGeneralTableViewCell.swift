@@ -13,7 +13,7 @@ class IGFeedPostGeneralTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .systemPink
+        contentView.backgroundColor = .systemBlue
     }
     
     required init?(coder: NSCoder) {

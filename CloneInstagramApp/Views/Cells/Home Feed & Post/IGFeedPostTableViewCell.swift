@@ -34,7 +34,7 @@ final class IGFeedPostTableViewCell: UITableViewCell {
     }
     
     public func configure(with post: UserPost){
-        postImageView.image = UIImage(named: "avt")
+        postImageView.image = UIImage(named: "feed1")
         return
         //configure cell
         switch post.postType {

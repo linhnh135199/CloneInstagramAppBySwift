@@ -103,7 +103,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDeleg
                        profilePhoto: URL(string: "https://www.youtube.com")!,
                        birthDate: Date(),
                        gender: .male,
-                       counts: UserCount(followers: 1, following: 1, posts: 1),
+                       counts: UserCount(followers: 50, following: 50 , posts: 1),
                        joinDate: Date())
         let post = UserPost(identifier: "",
                             postType: .photo,
@@ -173,7 +173,8 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     func profileHeaderDidTapFollowerButton(_ header: ProfileInfoHeaderCollectionReusableView) {
         var mockData = [UserRelationship]()
         for x in 0..<10 {
-            mockData.append(UserRelationship(username: "@may13.gg", name: "Hoàng Linh", type: x % 2 == 0 ? .following : .no_following))
+            mockData.append(UserRelationship(username: "@may13.gg", name: "Hoàng Linh",
+                                             type: x % 2 == 0 ? .following : .no_following))
         }
         let vc = ListViewController(data: mockData)
         vc.title = "Followers"
@@ -184,7 +185,8 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
         var mockData = [UserRelationship]()
         for x in 0..<10 {
-            mockData.append(UserRelationship(username: "@may13.gg", name: "Hoàng Linh", type: x % 2 == 0 ? .following : .no_following))
+            mockData.append(UserRelationship(username: "@may13.gg", name: "Hoàng Linh",
+                                             type: x % 2 == 0 ? .following : .no_following))
         }
         let vc = ListViewController(data: mockData)
         vc.title = "Following"
@@ -208,8 +210,5 @@ extension ProfileViewController: ProfileTabsCollectionReusableViewDelegate {
     
     func didTapTaggedButtonTab() {
         //reload collection view with data
-
     }
-    
-    
 }

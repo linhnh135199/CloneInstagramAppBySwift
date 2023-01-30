@@ -134,19 +134,15 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         let countButtonWidth = (width - 10 - profilePhotoSize)/3
         
         postsButton.frame = CGRect(x: profilePhotoImageView.right,
-                                   y: 5,
+                                   y: 40,
                                    width: countButtonWidth,
                                    height: buttonHeight).integral
         followerButton.frame = CGRect(x: postsButton.right,
-                                      y: 5,
+                                      y:40,
                                       width: countButtonWidth,
                                       height: buttonHeight).integral
         followingButton.frame = CGRect(x: followerButton.right,
-                                       y: 5,
-                                       width: countButtonWidth,
-                                       height: buttonHeight).integral
-        followingButton.frame = CGRect(x: followerButton.right,
-                                       y: 5,
+                                       y: 40,
                                        width: countButtonWidth,
                                        height: buttonHeight).integral
         editProfileButton.frame = CGRect(x: profilePhotoImageView.right,

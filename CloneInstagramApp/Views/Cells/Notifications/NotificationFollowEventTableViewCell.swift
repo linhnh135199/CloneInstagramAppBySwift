@@ -21,7 +21,7 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
-        imageView.backgroundColor = .tertiarySystemBackground
+        imageView.image = UIImage(named: "avt2")
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

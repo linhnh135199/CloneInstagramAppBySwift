@@ -23,9 +23,11 @@ class UserFollowTableViewCell: UITableViewCell {
     static let identifier = "UserFollowTableViewCell"
     weak var delegate: UserFollowTableViewCellDelegate?
     private var model: UserRelationship?
+    
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
+        
         imageView.backgroundColor = .secondarySystemBackground
         imageView.contentMode = .scaleAspectFill
         return imageView

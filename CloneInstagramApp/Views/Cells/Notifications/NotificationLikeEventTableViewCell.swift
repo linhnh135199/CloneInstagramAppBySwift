@@ -20,9 +20,8 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
-        imageView.backgroundColor = .tertiarySystemBackground   
         imageView.contentMode = .scaleAspectFill
-        
+        imageView.image = UIImage(named: "avt3")
         return imageView
     }()
     
@@ -30,7 +29,7 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 0
-        label.text = "@may13.gg liked your photo."
+        label.text = "@hoodneed liked your photo."
         return label
     }()
     
