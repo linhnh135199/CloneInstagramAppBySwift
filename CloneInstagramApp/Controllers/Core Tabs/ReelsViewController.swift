@@ -15,7 +15,7 @@ struct VideoModel {
     let videoFileFormat: String
 }
 
-class ReelsViewController: UIViewController {
+class ReelsViewController: UIViewController{
     
     private var collectionView: UICollectionView?
     
@@ -25,14 +25,15 @@ class ReelsViewController: UIViewController {
         super.viewDidLoad()
         
         for _ in 0..<10{
-            let model = VideoModel(caption: "Demo title1",
-                                   username: "@pu38",
-                                   audioTrackName: "DemoReelVideo",
+            let model = VideoModel(caption: "Swift is perfect",
+                                   username: "_hello.world_ ✹",
+                                   audioTrackName: "♫ Shin Giwon Piano・This Love",
                                    videoFileName: "video1",
                                    videoFileFormat: "mp4")
             data.append(model)
         }
-        
+        //hidden navigationbar
+        self.navigationController?.isNavigationBarHidden = true
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -43,24 +44,23 @@ class ReelsViewController: UIViewController {
                                            left: 0,
                                            bottom: 0,
                                            right: 0)
-        
         collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
         collectionView?.register(VideoCollectionViewCell.self,
                                  forCellWithReuseIdentifier: VideoCollectionViewCell.identifier)
         collectionView?.isPagingEnabled = true
         collectionView?.dataSource = self
-        collectionView?.delegate = self
         view.addSubview(collectionView!)
         collectionView?.reloadData()
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView?.frame = view.bounds
     }
 }
-extension ReelsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ReelsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
@@ -70,6 +70,31 @@ extension ReelsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoCollectionViewCell.identifier,
                                                       for: indexPath) as! VideoCollectionViewCell
         cell.configure(with: model)
+        cell.delegate = self
         return cell
     }
 }
+extension ReelsViewController: VideoCollectionViewCellDelegate {
+    func didTapLikeButton(with model: VideoModel) {
+        print("like")
+    }
+    
+    func didTapCommentButton(with model: VideoModel) {
+        print("comment")
+    }
+    
+    func didTapProfileButton(with model: VideoModel) {
+        print("profile")
+    }
+    
+    func didTapShareButton(with model: VideoModel) {
+        print("share")
+    }
+    
+    func didTapMoreButton(with model: VideoModel) {
+        print("more")
+    }
+}
+
+
+
