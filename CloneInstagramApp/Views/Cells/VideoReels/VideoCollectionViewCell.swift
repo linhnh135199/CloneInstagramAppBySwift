@@ -67,40 +67,52 @@ class VideoCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    //buttons
+    private let likeCount: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.text = "7.093"
+        label.font = label.font.withSize(14)
+        label.textColor = .white
+        return label
+    }()
     
-    private let profileButton: UIButton = {
+    private let commentCount: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.text = "678"
+        label.font = label.font.withSize(14)
+        label.textColor = .white
+        return label
+    }()
+    
+    //buttons
+    private let cameraButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "avt"), for: .normal)
-        button.backgroundColor = .white
+        button.setBackgroundImage(UIImage(named: "camera"), for: .normal)
         return button
     }()
     
     private let likeButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "heart"), for: .normal)
-        button.backgroundColor = .white
+        button.setBackgroundImage(UIImage(named: "heart-white"), for: .normal)
         return button
     }()
     
     private let commentButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
-        button.setBackgroundImage(UIImage(named: "comment"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "comment-white"), for: .normal)
         return button
     }()
     
     private let shareButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
-        button.setBackgroundImage(UIImage(named: "share"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "share-white"), for: .normal)
         return button
     }()
     
     private let moreButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
-        button.setBackgroundImage(UIImage(named: "more"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "more-white"), for: .normal)
         return button
     }()
     
@@ -119,6 +131,9 @@ class VideoCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(commentButton)
         contentView.addSubview(shareButton)
         contentView.addSubview(moreButton)
+        contentView.addSubview(cameraButton)
+        contentView.addSubview(likeCount)
+        contentView.addSubview(commentCount)
         
         likeButton.addTarget(self,
                              action: #selector(didTapLikeButton),
@@ -132,8 +147,6 @@ class VideoCollectionViewCell: UICollectionViewCell {
         moreButton.addTarget(self,
                              action: #selector(didTapMoreButton),
                              for: .touchUpInside)
-        
-        likeButton.imageView?.tintColor = .white
         
         videoContainer.clipsToBounds = true
         contentView.sendSubviewToBack(videoContainer)
@@ -165,26 +178,32 @@ class VideoCollectionViewCell: UICollectionViewCell {
                                    height: (size+8)-10)
         profileAudio.layer.cornerRadius = size/3
         
+        
+        //buttons
         moreButton.frame = CGRect(x: width-(size+10),
-                                     y: height-(size*7)-10,
-                                     width: size,
-                                     height: size)
+                                     y: height-(size*2)-10,
+                                     width: size-5,
+                                     height: size-5)
         
         shareButton.frame = CGRect(x: width-(size+10),
-                                 y: height-(size*9)-10,
-                                 width: size,
-                                 height: size)
+                                 y: height-(size*4),
+                                 width: size-5,
+                                 height: size-5)
         
         commentButton.frame = CGRect(x: width-(size+10),
-                                     y: height-(size*11)-10,
-                                     width: size,
-                                     height: size)
-        
+                                     y: height-(size*6)-10,
+                                     width: size-5,
+                                     height: size-5)
+
         likeButton.frame = CGRect(x: width-(size+10),
-                                  y: height-(size*13)-10,
-                                  width: size,
-                                  height: size)
+                                  y: height-(size*8)-10,
+                                  width: size-5,
+                                  height: size-5)
         
+        cameraButton.frame = CGRect(x: width-(size+10),
+                                          y: height-(size*22),
+                                          width: size-5,
+                                          height: size-5)
         //labes
         audioLabel.frame = CGRect(x: 10,
                                   y: height-40,
@@ -195,19 +214,23 @@ class VideoCollectionViewCell: UICollectionViewCell {
                                     width: width-size-10,
                                     height: 50)
         usernameLabel.frame = CGRect(x: profilePhotoImageView.right+10,
-                                     y: height-115,
+                                     y: height-105,
                                      width: width-size-10,
                                      height: 50)
-        
+        likeCount.frame = CGRect(x: width-(size+26),
+                                 y: likeButton.bottom-10,
+                                  width: 50,
+                                  height: 50)
+        commentCount.frame = CGRect(x: width-(size+32),
+                                    y: commentButton.bottom-8,
+                                     width: 50,
+                                     height: 50)
+        //image avt
         profilePhotoImageView.frame = CGRect(x: 10,
-                                             y: height - 110,
+                                             y: height - 100,
                                              width: size,
                                              height: size)
         profilePhotoImageView.layer.cornerRadius = size/2
-        
-        
-        
-        
     }
     
     required init?(coder: NSCoder) {

@@ -58,6 +58,7 @@ class ReelsViewController: UIViewController{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView?.frame = view.bounds
+        collectionView?.frame = CGRect(x: 0, y: 0, width: 430, height: 840)
     }
 }
 extension ReelsViewController: UICollectionViewDataSource {
