@@ -35,9 +35,29 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         createMockModels()
         view.addSubview(tableView)
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
+        addNavBarImage()
     }
+    
+    func addNavBarImage(){
+        let navController = navigationController!
+        let logoImage = UIImage(named: "text")
+        let imageView = UIImageView(image: logoImage)
+        
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        
+        let bannerX = bannerWidth/2 - (logoImage?.size.width)! / 2
+        let bannerY = bannerHeight/2 - (logoImage?.size.height)! / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFill
+        navigationItem.titleView = imageView
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
